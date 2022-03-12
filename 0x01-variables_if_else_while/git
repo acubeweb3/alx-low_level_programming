@@ -1,0 +1,4 @@
+#!/bin/bash
+git add --all
+git commit -m "This command to push to 0x01"
+git push
