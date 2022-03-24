@@ -1,33 +1,32 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * *cap_string - function to capitalize word
- * @str: pointer
- * Description: convert string into uppercase
- * Return: capitalized string
- */
-char *cap_sting(char *str)
+  * cap_string - ...
+  * @s: ...
+  *
+  * Return: char value
+  */
+char *cap_string(char *s)
 {
-	int count = 0, i;
-	int sep_words[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int a = 0, i;
+	int cspc = 13;
+	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
 
-	if (*(str + count) >= 97 && *(str + count) <= 122)
+	while (s[a])
 	{
-		*(str + count) = *(str + count) - 32;
-		count++;
-	}
-	while (*(str + count) != '\0')
-	{
-		for (i = 0; i < 13; i++)
+		i = 0;
+
+		while (i < cspc)
 		{
-			if (*(str + count) == sep_words[i])
-			{
-				if ((*(str + (count + 1)) >= 97) && (*(str + (count + 1)) <= 122))
-					*(str + (count + 1)) = *(str + (count + 1)) - 32;
-				break;
-			}
+			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+				s[a] -= 32;
+
+			i++;
 		}
-		count++;
+
+		a++;
 	}
-	return (str);
+
+	return (s);
 }
