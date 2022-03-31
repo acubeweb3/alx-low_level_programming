@@ -1,23 +1,15 @@
 #include "main.h"
 
-
-
 /**
- *
- *  * main - check the code
- *
- *   *
- *
- *    * Return: Always 0.
- *
- *     */
-
-int main(void)
-
+ * _print_rev_recursion - function to print inverse of a string
+ * @s: pointer to the string
+ * Return: void
+ */
+void _print_rev_recursion(char *s)
 {
-
-	    _print_rev_recursion("\nColton Walker");
-
-	        return (0);
-
+	if (*s)
+	{
+		_print_rev_recursion(s + 1);
+		_putchar(*s);
+	}
 }
